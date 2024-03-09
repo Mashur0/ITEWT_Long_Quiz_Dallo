@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <button class="btn btn-success btn-lg"
+            (click)="newRecipe({
+              recipeName: 'Test New Recipe',
+              recipeDesc: 'New description about the recipe',
+              recipeimage: 'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg'
+            })">
+      New Recipe
+    </button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <a *ngFor="let recipe of recipes" class="list-group-item clearfix">
+      <div class="pull-left">
+        <img [src]="recipe.recipeImage" alt="{{ recipe.recipeName }}" class="recipe-thumbnail">
+        <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+        <p class="list-group-item-text">{{ recipe.description }}</p>
+      </div>
+      <span class="pull-right">
+        <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-responsive recipe-thumbnail" style="max-height: 80px;">
+      </span>
+    </a>
+    <app-recipe-item></app-recipe-item>
+  </div>
+</div>
